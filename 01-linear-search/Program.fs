@@ -1,6 +1,6 @@
 ﻿open System
 
-let linearSearch (array: string[]) (target: string) : Option<int> = 
+let linearSearch (array: 'a[]) (target: 'a) : Option<int> = 
     let rec search index = 
         match array.Length with 
         | l when index >= l -> None
@@ -21,4 +21,12 @@ let main argv =
     |]
     linearSearch names "le paul" |> printfn "The target is at index: %A" 
     linearSearch names "luttin" |> printfn "The target is at index: %A" 
+
+    let numbers = [|
+        1
+        3
+        9
+    |]
+    linearSearch numbers 3 |> printfn "The target is at index %A"
+    linearSearch numbers 12 |> printfn "The target is at index %A"
     0 
