@@ -1,18 +1,16 @@
 ﻿open System
 
 let binarySearch (array: 'a[]) (target: 'a) = 
-    printfn "binarySearch"
     let rec search min max =
-        printfn "search %i %i" min max
         match (min, max) with 
-        | (min, max) when max < min -> -1 // 2 and 7
+        | (min, max) when max < min -> -1 
         | _ -> 
-            let guess = ((min + max) / 2); // 3 (ints rounds down by default)
+            let guess = ((min + max) / 2);
             match array.[guess] with
-            | value when value = target -> guess // 4
-            | value when value < target -> search (guess + 1) (max) // 5
-            | _ -> search (min) (guess - 1) // 6
-    search (0) (array.Length - 1) // 1
+            | x when x = target -> guess 
+            | x when x < target -> search (guess + 1) (max) 
+            | _ -> search (min) (guess - 1) 
+    search (0) (array.Length - 1) 
 
 [<EntryPoint>]
 let main argv =
