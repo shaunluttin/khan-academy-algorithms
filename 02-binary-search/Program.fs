@@ -7,15 +7,15 @@ let binarySearch (array: 'a[]) (target: 'a) =
         | _ -> 
             let guess = ((min + max) / 2);
             match array.[guess] with
-            | x when x = target -> guess 
+            | x when x > target -> search (min) (guess - 1)
             | x when x < target -> search (guess + 1) (max) 
-            | _ -> search (min) (guess - 1) 
+            | _ -> guess 
     search (0) (array.Length - 1) 
 
 [<EntryPoint>]
 let main argv =
 
-    binarySearch [|0..10|] 3 |> printfn "The target is at index %i"
+    binarySearch [|0..10|] 3 |> printfn "The target is at index %i" // 3
 
     let names = [|
         "erdnase"
@@ -24,8 +24,8 @@ let main argv =
         "scarne"
         "ireland"
     |]
-    binarySearch names "le paul" |> printfn "The target is at index: %i" 
-    binarySearch names "luttin" |> printfn "The target is at index: %i" 
+    binarySearch names "le paul" |> printfn "The target is at index: %i"  // 2
+    binarySearch names "luttin" |> printfn "The target is at index: %i" // -1
 
     0 
 
