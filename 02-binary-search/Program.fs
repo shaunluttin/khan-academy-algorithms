@@ -9,7 +9,7 @@ let binarySearch (array: 'a[]) (target: 'a) =
             match array.[guess] with
             | x when x > target -> search (min) (guess - 1)
             | x when x < target -> search (guess + 1) (max) 
-            | _ -> guess 
+            | _ -> guess
     search (0) (array.Length - 1) 
 
 [<EntryPoint>]
