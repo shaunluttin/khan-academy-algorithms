@@ -3,6 +3,7 @@ module Tests
 open System
 open Xunit
 
+// todo: Ask about this on codereview.stackexchange.com
 let swap (array: 'a[]) (first: int) (second: int): 'a[] = 
     let originalFirst = array.[first]
     array.[first] <- array.[second];
