@@ -17,15 +17,15 @@ let main argv =
 
     binarySearch [|0..10|] 3 |> printfn "The target is at index %i" // 3
 
-    let names = [|
+    let sortedNames = [|
         "erdnase"
-        "vernon"
+        "ireland"
         "le paul"
         "scarne"
-        "ireland"
+        "vernon"
     |]
-    binarySearch names "le paul" |> printfn "The target is at index: %i"  // 2
-    binarySearch names "luttin" |> printfn "The target is at index: %i" // -1
+    binarySearch sortedNames "le paul" |> printfn "The target is at index: %i"  // 2
+    binarySearch sortedNames "luttin" |> printfn "The target is at index: %i" // -1
 
     0 
 
