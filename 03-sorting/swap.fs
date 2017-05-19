@@ -1,9 +1,10 @@
-module Tests
+module SwapTests
 
 open System
 open Xunit
 
-// todo: Ask about this on codereview.stackexchange.com
+// todo: Ask about this on codereview.stackexchange.com. Done.
+// todo: Perform this using an immutable array.
 let swap (array: 'a[]) (first: int) (second: int): 'a[] = 
     let originalFirst = array.[first]
     array.[first] <- array.[second];
