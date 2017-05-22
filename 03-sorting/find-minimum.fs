@@ -3,21 +3,19 @@ module FindMinimumTests
 open System
 open Xunit
 
-let indexOfMinimumValue (array: int[]): int =
-    let rec find (index: int) (minIndex: int) = 
-        printfn "index: %i minIndex: %i" index minIndex
-
-        match index with
-        | i when i >= array.Length -> minIndex
-        | _ -> 
-            let nextMinIndex = if array.[index] < array.[minIndex] then index else minIndex;
-            find (index + 1) nextMinIndex
+let findMinimumValueIndex (array: int[]): int =
+    let rec find (index: int) (minimumValueIndex: int) = 
+        let findNext = find (index + 1)
+        match index with 
+        | i when i >= array.Length -> minimumValueIndex // base case
+        | i when array.[i] < array.[minimumValueIndex] -> findNext i
+        | _ -> findNext minimumValueIndex
     find 0 0
 
 [<Fact>]
-let ``findMinimum returns the index of the minimum value in a subarray`` () = 
+let ``findMinimum returns the index of the minimum value in an array`` () = 
     let array = [|4; 5; 6; 7; 3; 2; 7; 4; 6; 8; 3|]
-    let result = indexOfMinimumValue array
+    let result = findMinimumValueIndex array
     Assert.StrictEqual(result, 5);
 
 
