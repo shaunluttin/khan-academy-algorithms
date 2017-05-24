@@ -1,21 +1,21 @@
 ﻿open System
 
-let binarySearch (array: 'a list) (target: 'a) =
-    let rec search min max =
+let binarySearch (array: 'a list) (target: 'a): int Option =
+    let rec search min max: int Option =
         match (min, max) with 
-        | (min, max) when max < min -> -1 
+        | (min, max) when max < min -> None 
         | _ -> 
             let guess = ((min + max) / 2);
             match array.[guess] with
             | x when x > target -> search (min) (guess - 1)
             | x when x < target -> search (guess + 1) (max) 
-            | _ -> guess
+            | _ -> Some guess
     search (0) (array.Length - 1) 
 
 [<EntryPoint>]
 let main argv =
 
-    binarySearch [0..10] 3 |> printfn "The target is at index %i" // 3
+    binarySearch [0..10] 3 |> printfn "The target is at index %A" // Some 3
 
     let sortedNames = [
         "erdnase"
@@ -25,8 +25,8 @@ let main argv =
         "vernon"
     ]
 
-    binarySearch sortedNames "le paul" |> printfn "The target is at index: %i"  // 2
-    binarySearch sortedNames "luttin" |> printfn "The target is at index: %i" // -1
+    binarySearch sortedNames "le paul" |> printfn "The target is at index: %A"  // Some 2
+    binarySearch sortedNames "luttin" |> printfn "The target is at index: %A" // <null>
 
     0 
 
