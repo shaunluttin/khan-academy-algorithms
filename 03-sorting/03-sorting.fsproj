@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="**/*.fs" />
+    <Compile Include="swap.fs" />
+    <Compile Include="find-minimum.fs" />
+    <Compile Include="selection-sort.fs" />
   </ItemGroup>
 
   <ItemGroup>
