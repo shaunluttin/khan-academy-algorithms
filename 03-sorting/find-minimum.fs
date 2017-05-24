@@ -1,4 +1,4 @@
-module FindMinimumTests
+module FindMinimum
 
 open System
 open Xunit

@@ -1,4 +1,4 @@
-module SwapTests
+module Swap
 
 open System
 open Xunit
