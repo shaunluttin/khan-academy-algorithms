@@ -1,6 +1,6 @@
 ﻿open System
 
-let binarySearch (array: 'a[]) (target: 'a) = 
+let binarySearch (array: 'a list) (target: 'a) =
     let rec search min max =
         match (min, max) with 
         | (min, max) when max < min -> -1 
@@ -15,15 +15,16 @@ let binarySearch (array: 'a[]) (target: 'a) =
 [<EntryPoint>]
 let main argv =
 
-    binarySearch [|0..10|] 3 |> printfn "The target is at index %i" // 3
+    binarySearch [0..10] 3 |> printfn "The target is at index %i" // 3
 
-    let sortedNames = [|
+    let sortedNames = [
         "erdnase"
         "ireland"
         "le paul"
         "scarne"
         "vernon"
-    |]
+    ]
+
     binarySearch sortedNames "le paul" |> printfn "The target is at index: %i"  // 2
     binarySearch sortedNames "luttin" |> printfn "The target is at index: %i" // -1
 
