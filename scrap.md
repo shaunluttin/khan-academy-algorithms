@@ -1,3 +1,10 @@
+Monday 12 June 2017
+
+Merge sort copies the array,
+which means it requires a non-constant amount of space.
+That means merge-sort 
+does not run in-place.
+
 Saturday 10 June 2017
 
 Merge Sort
